@@ -30,7 +30,7 @@ onMounted(() => {
       this.force = 0;
       this.angle = 0;
       this.distance = 0;
-      this.friction = Math.random() * 0.8 + 0.015;
+      this.friction = Math.random() * 0.2 + 0.215;
       this.ease = Math.random() * 0.1 + 0.005;
     }
     draw() {
@@ -79,7 +79,7 @@ onMounted(() => {
       }, 500))
 
       this.particles = [];
-      this.gap = 2;
+      this.gap = 1;
       this.mouse = {
         radius: 10000,
         x: 0,
@@ -102,13 +102,12 @@ onMounted(() => {
     }
     wrapText(text) {
       const gradient = this.context.createLinearGradient(0, 0, this.canvasWidth, this.canvasHeight);
-      gradient.addColorStop(0.3, 'darkblue');
-      gradient.addColorStop(0.4, 'blue');
+      gradient.addColorStop(0.3, 'lightseagreen');
       gradient.addColorStop(0.5, 'orange');
       // gradient.addColorStop(0.6, 'darkorange');
       gradient.addColorStop(0.7, 'lightseagreen');
       this.context.fillStyle = gradient;
-      this.context.lineWidth = "2px";
+      this.context.lineWidth = "1px";
       this.context.strokeStyle = "black"
       this.context.textAlign = "center"
       this.context.textBaseline = 'middle';
@@ -156,7 +155,6 @@ onMounted(() => {
           }
         }
       }
-      console.log(this.particles)
     }
     render() {
       this.particles.forEach(particle => {
@@ -209,9 +207,9 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
-body {
-  background: #1a1a1a;
+<style >
+#app {
+  background: black;
   height: 100vh;
   width: 100vw;
   display: grid;
